@@ -1,4 +1,12 @@
-part of 'space_bloc_bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 
 @immutable
-abstract class SpaceBlocEvent {}
+abstract class SpaceEvent extends Equatable {
+  const SpaceEvent();
+}
+
+class LoadSpaceEvent extends SpaceEvent {
+  @override
+  List<Object?> get props => [];
+}
