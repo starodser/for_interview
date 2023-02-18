@@ -4,14 +4,14 @@ import '../../repository/repositories.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SpaceBloc extends Bloc<SpaceEvent, SpaceState> {
-  final UserRepository _userRepository;
+  final SpaceRepositoryApi spaceRepository;
 
-  SpaceBloc(this._userRepository) : super(SpaceLoadingState()) {
+  SpaceBloc(this.spaceRepository) : super(SpaceLoadingState()) {
     on<LoadSpaceEvent>((event, emit) async {
       emit(SpaceLoadingState());
       try {
-        final users = await _userRepository.getImage();
-        emit(SpaceLoadedState(users));
+        final _space = await spaceRepository.getImage();
+        emit(SpaceLoadedState(_space));
       } catch (e) {
         emit(SpaceErrorState(e.toString()));
       }

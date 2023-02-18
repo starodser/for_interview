@@ -3,23 +3,23 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-abstract class SpaceState extends Equatable {}
+abstract class SpaceState {} //extends Equatable
 
 class SpaceLoadingState extends SpaceState {
   @override
-  List<Object?> get props => [];
+  Object? get props => [];
 }
 
 class SpaceLoadedState extends SpaceState {
-  final List<BackImage> users;
-  SpaceLoadedState(this.users);
+  final BackImage space;
+  SpaceLoadedState(this.space);
   @override
-  List<Object?> get props => [users];
+  Object? get props => [space];
 }
 
 class SpaceErrorState extends SpaceState {
   final String error;
   SpaceErrorState(this.error);
   @override
-  List<Object?> get props => [error];
+  Object? get props => [error];
 }
