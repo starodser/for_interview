@@ -4,12 +4,9 @@ import '../data/models.dart';
 import 'package:http/http.dart' as http;
 
 class SpaceRepositoryApi {
-  String userUrl =
-      'https://kauai.ccmc.gsfc.nasa.gov/DONKI/WS/get/FLR?startDate=2023-02-12&endDate=2023-02-20';
-
   Future<List<SolarFlame>> getSolarFlame() async {
-    final response = await http.get(Uri.parse(userUrl));
-    print(userUrl);
+    final response = await http.get(Uri.parse(
+        'https://kauai.ccmc.gsfc.nasa.gov/DONKI/WS/get/FLR?startDate=2023-02-12&endDate=2023-02-20'));
     print(response.body);
     if (response.statusCode == 200) {
       final List<dynamic> result = json.decode(response.body);

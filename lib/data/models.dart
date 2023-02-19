@@ -1,8 +1,8 @@
 class SolarFlame {
-  String? startTime;
-  String? pickTime;
-  String? endTime;
-  String? classSolarFlame;
+ final String startTime;
+ final  String pickTime;
+  final String endTime;
+  final String classSolarFlame;
   SolarFlame(
       {required this.startTime,
       required this.pickTime,

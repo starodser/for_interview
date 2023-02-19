@@ -10,12 +10,12 @@ class SpaceEmptyState extends SpaceState {}
 class SpaceLoadingState extends SpaceState {}
 
 class SpaceLoadedState extends SpaceState {
-  final List<SolarFlame> loadedSpace;
+   List<SolarFlame> loadedSpace;
 
   SpaceLoadedState(
-      {required this.loadedSpace}); //: assert(loadedSpace != null);
+      {required this.loadedSpace}) : assert(loadedSpace != null);
 }
 
 class SpaceErrorState extends SpaceState {
-  // print(response.body);
+  
 }

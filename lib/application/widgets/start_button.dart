@@ -9,7 +9,7 @@ class StartButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SpaceBloc spaceBloc = BlocProvider.of<SpaceBloc>(context);
+    final SpaceBloc spaceBloc = context.read<SpaceBloc>();
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [

@@ -60,7 +60,7 @@ class SolarFlameList extends StatelessWidget {
           ),
         );
       }
-      return null;
+      return SizedBox.shrink();
     });
   }
 }

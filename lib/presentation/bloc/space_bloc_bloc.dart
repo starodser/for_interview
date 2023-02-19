@@ -6,24 +6,19 @@ import '../../data/models.dart';
 
 class SpaceBloc extends Bloc<SpaceEvent, SpaceState> {
   final SpaceRepository spacesRepository;
-  SpaceBloc(this.spacesRepository) : super(SpaceEmptyState());
-
-  @override
-  Stream<SpaceState> mapEventToState(SpaceEvent event) async* {
-    if (event is LoadSpaceEvent) {
-      yield SpaceLoadingState();
+  SpaceBloc(this.spacesRepository) : super(SpaceEmptyState()) {
+    on<LoadSpaceEvent>((event, emit) async {
+      emit(SpaceLoadingState());
       try {
         final List<SolarFlame> loadedSolarFlameList =
             await spacesRepository.getAllSolarFlame();
-        yield SpaceLoadedState(loadedSpace: loadedSolarFlameList);
+        emit(SpaceLoadedState(loadedSpace: loadedSolarFlameList));
       } catch (_) {
-        print(_);
-        yield SpaceErrorState();
+        emit(SpaceErrorState());
       }
-    } else if (event is ClearSpaceEvent) {
-      yield SpaceEmptyState();
-    }
-
-    throw UnimplementedError();
+    });
+    on<ClearSpaceEvent>((event, emit) async {
+      emit(SpaceEmptyState());
+    });
   }
 }
