@@ -2,19 +2,28 @@ import './space_bloc_state.dart';
 import './space_bloc_event.dart';
 import '../../repository/repositories.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../data/models.dart';
 
 class SpaceBloc extends Bloc<SpaceEvent, SpaceState> {
-  final SpaceRepositoryApi spaceRepository;
+  final SpaceRepository spacesRepository;
+  SpaceBloc(this.spacesRepository) : super(SpaceEmptyState());
 
-  SpaceBloc(this.spaceRepository) : super(SpaceLoadingState()) {
-    on<LoadSpaceEvent>((event, emit) async {
-      emit(SpaceLoadingState());
+  @override
+  Stream<SpaceState> mapEventToState(SpaceEvent event) async* {
+    if (event is LoadSpaceEvent) {
+      yield SpaceLoadingState();
       try {
-        final _space = await spaceRepository.getImage();
-        emit(SpaceLoadedState(_space));
-      } catch (e) {
-        emit(SpaceErrorState(e.toString()));
+        final List<SolarFlame> loadedSolarFlameList =
+            await spacesRepository.getAllSolarFlame();
+        yield SpaceLoadedState(loadedSpace: loadedSolarFlameList);
+      } catch (_) {
+        print(_);
+        yield SpaceErrorState();
       }
-    });
+    } else if (event is ClearSpaceEvent) {
+      yield SpaceEmptyState();
+    }
+
+    throw UnimplementedError();
   }
 }

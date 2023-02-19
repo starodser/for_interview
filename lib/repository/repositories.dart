@@ -4,15 +4,16 @@ import '../data/models.dart';
 import 'package:http/http.dart' as http;
 
 class SpaceRepositoryApi {
-  String userUrl = 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY';
+  String userUrl =
+      'https://kauai.ccmc.gsfc.nasa.gov/DONKI/WS/get/FLR?startDate=2023-02-12&endDate=2023-02-20';
 
-  Future<BackImage> getImage() async {
+  Future<List<SolarFlame>> getSolarFlame() async {
     final response = await http.get(Uri.parse(userUrl));
-
+    print(userUrl);
+    print(response.body);
     if (response.statusCode == 200) {
-      final result = json.decode(response.body);
-      print(result);
-      return result.map((e) => BackImage.fromJson(e));
+      final List<dynamic> result = json.decode(response.body);
+      return result.map((json) => SolarFlame.fromJson(json)).toList();
     } else {
       throw Exception(response.reasonPhrase);
     }
@@ -20,6 +21,7 @@ class SpaceRepositoryApi {
 }
 
 class SpaceRepository {
-  SpaceRepositoryApi _spaceRepository = SpaceRepositoryApi();
-  Future<BackImage> getUser() => _spaceRepository.getImage();
+  final SpaceRepositoryApi _spacesRepository = SpaceRepositoryApi();
+  Future<List<SolarFlame>> getAllSolarFlame() =>
+      _spacesRepository.getSolarFlame();
 }

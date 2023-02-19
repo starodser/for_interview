@@ -1,25 +1,21 @@
 import '../../data/models.dart';
-import 'package:equatable/equatable.dart';
+
 import 'package:flutter/material.dart';
 
 @immutable
 abstract class SpaceState {} //extends Equatable
 
-class SpaceLoadingState extends SpaceState {
-  @override
-  Object? get props => [];
-}
+class SpaceEmptyState extends SpaceState {}
+
+class SpaceLoadingState extends SpaceState {}
 
 class SpaceLoadedState extends SpaceState {
-  final BackImage space;
-  SpaceLoadedState(this.space);
-  @override
-  Object? get props => [space];
+  final List<SolarFlame> loadedSpace;
+
+  SpaceLoadedState(
+      {required this.loadedSpace}); //: assert(loadedSpace != null);
 }
 
 class SpaceErrorState extends SpaceState {
-  final String error;
-  SpaceErrorState(this.error);
-  @override
-  Object? get props => [error];
+  // print(response.body);
 }
