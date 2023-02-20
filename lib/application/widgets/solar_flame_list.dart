@@ -36,7 +36,7 @@ class SolarFlameList extends StatelessWidget {
                     children: <Widget>[
                       Text('Start : ${state.loadedSpace[index].startTime}',
                           style: TextStyle(
-                            fontWeight: FontWeight.w100,
+                            fontWeight: FontWeight.w400,
                           )),
                       Text(
                         'Pick : ${state.loadedSpace[index].pickTime}',
@@ -44,7 +44,7 @@ class SolarFlameList extends StatelessWidget {
                       ),
                       Text(
                         'End : ${state.loadedSpace[index].endTime}',
-                        style: TextStyle(fontWeight: FontWeight.w100),
+                        style: TextStyle(fontWeight: FontWeight.w400),
                       )
                     ],
                   ),

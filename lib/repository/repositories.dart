@@ -7,7 +7,6 @@ class SpaceRepositoryApi {
   Future<List<SolarFlame>> getSolarFlame() async {
     final response = await http.get(Uri.parse(
         'https://kauai.ccmc.gsfc.nasa.gov/DONKI/WS/get/FLR?startDate=2023-02-12&endDate=2023-02-20'));
-    print(response.body);
     if (response.statusCode == 200) {
       final List<dynamic> result = json.decode(response.body);
       return result.map((json) => SolarFlame.fromJson(json)).toList();
