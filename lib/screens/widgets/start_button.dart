@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../presentation/bloc/space_bloc_event.dart';
+import '../../application/bloc/space_bloc_event.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../presentation/bloc/space_bloc_bloc.dart';
+import '../../application/bloc/space_bloc_bloc.dart';
 
 class StartButton extends StatelessWidget {
   const StartButton({super.key});

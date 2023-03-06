@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:for_interview/presentation/bloc/space_bloc_bloc.dart';
-import 'package:for_interview/presentation/bloc/space_bloc_state.dart';
+import 'package:for_interview/application/bloc/space_bloc_bloc.dart';
+import 'package:for_interview/application/bloc/space_bloc_state.dart';
 
 class SolarFlameList extends StatelessWidget {
   const SolarFlameList({super.key});
