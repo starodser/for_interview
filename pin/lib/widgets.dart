@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pin/style.dart';
-import 'cubit/first_cubit.dart';
 
 class CustomButton extends StatelessWidget {
   final String nameNumber;
   final Function onPressed;
-  CustomButton({Key? key, required this.nameNumber, required this.onPressed})
+  const CustomButton(
+      {Key? key, required this.nameNumber, required this.onPressed})
       : super(
           key: key,
         );
@@ -17,16 +17,16 @@ class CustomButton extends StatelessWidget {
       child: Container(
         width: 100,
         height: 80,
-        padding: EdgeInsets.all(13),
+        padding: padd13,
         child: Center(
           child: nameNumber.isEmpty
-              ? Icon(
+              ? const Icon(
                   Icons.backspace_outlined,
                   color: Color.fromRGBO(123, 97, 255, 1),
                 )
               : Text(
                   nameNumber,
-                  style: TextStyle(fontSize: 32), //headText,
+                  style: const TextStyle(fontSize: 32),
                   textAlign: TextAlign.center,
                 ),
         ),
@@ -37,24 +37,24 @@ class CustomButton extends StatelessWidget {
 
 class ViewWidget extends StatelessWidget {
   final String viewNumber;
-  ViewWidget({required this.viewNumber});
+  const ViewWidget({required this.viewNumber});
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         width: 70,
         height: 70,
         child: Center(
           child: Text(
             viewNumber,
-            style: TextStyle(
+            style: const TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.bold,
                 color: Color.fromRGBO(123, 97, 255, 1)),
             textAlign: TextAlign.center,
           ),
         ),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.white,
           boxShadow: [
             BoxShadow(

@@ -7,8 +7,6 @@ import 'package:pin/widgets.dart';
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
 
-  List _counter = [];
-
   @override
   final first = FirstCubit();
   Widget build(BuildContext context) {
@@ -19,19 +17,20 @@ class MyHomePage extends StatelessWidget {
           padding: const EdgeInsets.all(10.0),
           child: Row(
             children: [
-              IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back_ios))
+              IconButton(
+                  onPressed: () {}, icon: const Icon(Icons.arrow_back_ios))
             ],
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(13.0),
+        const Padding(
+          padding: padd13,
           child: Text(
             'Введите код',
-            style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+            style: headText,
           ),
         ),
         Column(
-          children: [
+          children: const [
             Text(
               'На ваш телефон +7 (960) 147-67-47 поступит звонок.',
               style: styleColor,
@@ -58,17 +57,17 @@ class MyHomePage extends StatelessWidget {
                 ),
               );
             }),
-        SizedBox(
+        const SizedBox(
           height: 100,
         ),
         Container(
-          margin: EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
           height: 60,
           width: double.infinity,
           child: DecoratedBox(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
-                  gradient: LinearGradient(colors: [
+                  gradient: const LinearGradient(colors: [
                     Color.fromRGBO(99, 78, 206, 1),
                     Color.fromRGBO(186, 99, 255, 1)
                   ])),
@@ -77,13 +76,13 @@ class MyHomePage extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   primary: Colors.transparent,
                 ),
-                child: Text(
+                child: const Text(
                   "Запросить ещё раз",
                   style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
               )),
         ),
-        SizedBox(
+        const SizedBox(
           height: 60,
         ),
         Row(mainAxisAlignment: MainAxisAlignment.center, children: [

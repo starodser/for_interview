@@ -20,14 +20,12 @@ class FirstCubit extends Cubit<FirstInitial> {
       list[3];
     }
 
-    print(result);
     return emit(FirstInitial(meaning: list));
   }
 
   void deleteMeaning(a) {
     final list = state.meaning;
     var lastIndex = list.lastIndexWhere((item) => item.isNotEmpty);
-    print(lastIndex);
     if (lastIndex < 0) {
       list[3] = a;
     }
