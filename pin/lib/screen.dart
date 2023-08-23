@@ -25,7 +25,7 @@ class MyHomePage extends StatelessWidget {
         const Padding(
           padding: padd13,
           child: Text(
-            'Введите код',
+            'Введите ',
             style: headText,
           ),
         ),
