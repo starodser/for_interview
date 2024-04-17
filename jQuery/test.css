@@ -1,0 +1,27 @@
+#can {
+outline: 2px solid #000;
+}
+div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+ h3 {
+   text-align: center;
+   font-size: 45px;
+ }
+.front {
+  z-index: 1;
+  height: 400px ;
+  width:  900px ;
+}
+.back {
+  z-index: -1;
+}
+input, h4{
+  position:absolute;
+  font-size: 25px ;
+}
