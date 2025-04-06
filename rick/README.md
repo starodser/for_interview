@@ -1,4 +1,4 @@
-# rick
+# ricky
 
 A new Flutter project.
 

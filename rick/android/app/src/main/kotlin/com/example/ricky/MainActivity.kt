@@ -1,4 +1,4 @@
-package com.example.rick
+package com.example.ricky
 
 import io.flutter.embedding.android.FlutterActivity
 
